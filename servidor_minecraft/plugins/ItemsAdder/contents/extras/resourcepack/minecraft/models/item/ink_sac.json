@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/ink_sac"
+  },
+    "overrides": [
+		{"predicate": {"custom_model_data":21}, "model": "littleroom_warden:warden_hat"},
+		{"predicate": {"custom_model_data":22}, "model": "littleroom_warden:warden_pet"}
+        ]
+}

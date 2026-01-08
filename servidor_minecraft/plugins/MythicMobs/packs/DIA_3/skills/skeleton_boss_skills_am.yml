@@ -1,0 +1,111 @@
+skeleboss_rswipe:
+  Cooldown: 4
+  Conditions:
+  - targetwithin{d=7} true
+  - offgcd
+  Skills:
+  - gcd{ticks=80}
+  - potion{type=SLOWNESS;duration=30;level=1} @self
+  - state{state=atk_rswipe;n=false;speed=1} @Self
+
+  - sound{s=minecraft:entity.skeleton.step;v=2;p=0.1;delay=15} @self
+  - sound{s=minecraft:entity.skeleton.converted_to_stray;v=1.5;p=0.5;delay=27} @self
+  - sound{s=minecraft:item.trident.hit;v=1.5;p=0.1;delay=25} @self
+
+  - throw{v=8;yv=5;delay=26} @LivingInCone{a=180;r=6}
+  - damage{a=<mob.damage>*1.8;delay=25} @LivingInCone{a=180;r=6}
+
+skeleboss_lswipe:
+  Cooldown: 4
+  Conditions:
+  - targetwithin{d=7} true
+  - offgcd
+  Skills:
+  - gcd{ticks=80}
+  - potion{type=SLOWNESS;duration=30;level=1} @self
+  - state{state=atk_lswipe;n=false;speed=1} @Self
+
+  - sound{s=minecraft:entity.skeleton.step;v=2;p=0.1;delay=15} @self
+  - sound{s=minecraft:entity.skeleton.converted_to_stray;v=1.5;p=0.5;delay=27} @self
+  - sound{s=minecraft:item.trident.hit;v=1.5;p=0.1;delay=25} @self
+
+  - throw{v=8;yv=5;delay=26} @LivingInCone{a=180;r=6}
+  - damage{a=<mob.damage>*1.8;delay=25} @LivingInCone{a=180;r=6}
+
+skeleboss_roar:
+  Cooldown: 16
+  Conditions:
+  - targetwithin{d=15} true
+  - offgcd
+  Skills:
+  - gcd{ticks=90}
+  - potion{type=SLOWNESS;duration=90;level=20} @self
+  - state{state=skl_roar;n=false;speed=1} @Self
+  - partvis{p=vfx;v=true;c=true;delay=20} @self
+  - partvis{p=vfx;v=false;c=true;delay=80} @self
+
+  - sound{s=minecraft:entity.wither.death;v=2;p=1.5;delay=20} @self
+
+  - throw{v=4;yv=3;delay=26;repeati=4;repeat=10} @PIR{r=6}
+  - summon{a=1;r=6;m=skeleton_minion;onsurface=true;
+    delay=15;repeat=8;repeati=12} @self
+
+skeleboss_rstomp:
+  Cooldown: 12
+  Conditions:
+  - targetwithin{d=15} true
+  - offgcd
+  Skills:
+  - gcd{ticks=70}
+  - potion{type=SLOWNESS;duration=60;level=20} @self
+  - state{state=skl_rstomp;n=false;speed=1} @Self
+  - lockmodel @self
+  - lockmodel{l=false;delay=60} @self
+
+  - sound{s=minecraft:entity.skeleton.step;v=2;p=0.1;delay=15} @self
+  - sound{s=minecraft:entity.skeleton.converted_to_stray;v=1.5;p=0.5;delay=27} @self
+  - sound{s=minecraft:item.trident.hit;v=1.5;p=0.1;delay=25} @self
+
+  - damage{a=<mob.damage>*1.5;delay=25} @LivingInCone{a=180;r=6}
+  - summon{a=1;r=0;m=skeleton_boss_trap_vfx;onsurface=true;
+    delay=25} @PIR{r=20}
+
+skeleboss_lstomp:
+  Cooldown: 12
+  Conditions:
+  - targetwithin{d=15} true
+  - offgcd
+  Skills:
+  - gcd{ticks=70}
+  - potion{type=SLOWNESS;duration=60;level=20} @self
+  - state{state=skl_lstomp;n=false;speed=1} @Self
+  - lockmodel @self
+  - lockmodel{l=false;delay=60} @self
+
+  - sound{s=minecraft:entity.skeleton.step;v=2;p=0.1;delay=15} @self
+  - sound{s=minecraft:entity.skeleton.converted_to_stray;v=1.5;p=0.5;delay=27} @self
+  - sound{s=minecraft:item.trident.hit;v=1.5;p=0.1;delay=25} @self
+
+  - damage{a=<mob.damage>*1.6;delay=25} @LivingInCone{a=180;r=6}
+  - summon{a=1;r=0;m=skeleton_boss_trap_vfx;onsurface=true;
+    delay=25} @PIR{r=20}
+
+skeleboss_poisonbreath:
+  Cooldown: 15
+  Conditions:
+  - targetwithin{d=10} true
+  - offgcd
+  Skills:
+  - gcd{ticks=50}
+  - potion{type=SLOWNESS;duration=50;level=20} @self
+  - state{state=skl_poisonbreath;n=false;speed=1} @Self
+
+  - sound{s=minecraft:entity.skeleton.step;v=2;p=0.1;delay=15} @self
+  - sound{s=minecraft:entity.skeleton.converted_to_stray;v=1.5;p=0.5;delay=27} @self
+  - sound{s=minecraft:item.trident.hit;v=1.5;p=0.1;delay=25} @self
+
+  - summon{a=1;s=true;m=skeleton_boss_poison_vfx;r=0;delay=15} @self
+
+am_skeleton_step:
+  Skills:
+  - sound{s=minecraft:entity.skeleton.step;v=0.4;p=1.8} @self
